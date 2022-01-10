@@ -15,6 +15,7 @@ namespace Calculator.xUnitTests
         }
 
         [Theory]
+        [Trait("Category", "ParameterTests")]
         [InlineData(1, 2, -1)]
         [InlineData(10, 2, 8)]
         [InlineData(-19, 2, -21)]

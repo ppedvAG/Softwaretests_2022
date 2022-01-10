@@ -33,6 +33,7 @@ namespace Calculator.Tests
         }
 
         [TestMethod]
+        
         public void Sum_MAX_and_1_throws_OverflowException()
         {
             //Arrange
@@ -44,6 +45,7 @@ namespace Calculator.Tests
         }
 
         [TestMethod]
+        [TestCategory("ParameterTests")]
         [DataRow(0, 0, 0)]
         [DataRow(1, 2, 3)]
         [DataRow(120, 5, 125)]

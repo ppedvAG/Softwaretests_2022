@@ -16,6 +16,7 @@ namespace Calculator.NUnitTests
         }
 
         [Test]
+        [Category("ParameterTests")]
         [TestCase(1, 2, -1)]
         [TestCase(10, 2, 8)]
         [TestCase(-19, 2, -21)]
