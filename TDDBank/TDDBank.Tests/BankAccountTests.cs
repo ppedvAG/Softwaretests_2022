@@ -77,5 +77,16 @@ namespace TDDBank.Tests
 
             Assert.ThrowsException<InvalidOperationException>(() => account.Withdraw(13));
         }
+
+        [TestMethod]
+        public void Can_Withdraw_to_Balance_zero()
+        {
+            var account = new BankAccount();
+            account.Deposit(12);
+
+            account.Withdraw(12);
+
+            Assert.AreEqual(0m,account.Balance);
+        }
     }
 }

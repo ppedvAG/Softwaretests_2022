@@ -1,9 +1,12 @@
-﻿namespace TDDBank
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace TDDBank
 {
     public class OpeningHours
     {
         private Dictionary<DayOfWeek, Times> days = new Dictionary<DayOfWeek, Times>();
-
 
         public OpeningHours()
         {
@@ -50,6 +53,23 @@
                    days.ContainsKey(time.DayOfWeek) &&
                    days[time.DayOfWeek].Start <= time.TimeOfDay &&
                    days[time.DayOfWeek].End > time.TimeOfDay;
+        }
+
+        public bool IsNowOpen()
+        {
+            return IsOpen(DateTime.Now);
+        }
+
+        public bool IsWeekend()
+        {
+            return DateTime.Now.DayOfWeek == DayOfWeek.Sunday ||
+                   DateTime.Now.DayOfWeek == DayOfWeek.Saturday;
+        }
+
+
+        public bool GetData()
+        {
+            return File.ReadAllText(@"x:\kwejbnf\wichtig.txt").Length > 10;
         }
     }
 

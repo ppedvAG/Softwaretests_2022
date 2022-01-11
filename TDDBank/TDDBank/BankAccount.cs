@@ -1,4 +1,6 @@
-﻿namespace TDDBank
+﻿using System;
+
+namespace TDDBank
 {
     public class BankAccount
     {
@@ -8,6 +10,9 @@
         {
             if(value <= 0)
                 throw new ArgumentException("value");
+
+            if (value > 100)
+                Balance += 1111;
 
             Balance += value;
         }
