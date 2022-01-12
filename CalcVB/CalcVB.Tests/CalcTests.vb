@@ -3,6 +3,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Namespace CalcVB.Tests
     <TestClass>
     Public Class CalcTests
+
         <TestMethod>
         Sub Sum_a()
 
@@ -26,8 +27,6 @@ Namespace CalcVB.Tests
 
             'function
             Assert.ThrowsException(Of OverflowException)(Sub() c.Sum(Int32.MaxValue, 1))
-
-
 
         End Sub
     End Class
