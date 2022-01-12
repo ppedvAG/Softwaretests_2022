@@ -9,6 +9,15 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
     [TestClass]
     public partial class EfContextTests
     {
+        [ClassInitialize]
+        static void Init(TestContext tc)
+        {
+          //con string holen
+        }
+
+
+
+
         [TestMethod]
         public void Can_create_database()
         {
@@ -24,6 +33,7 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
         [TestMethod]
         public void Can_insert_auto()
         {
+            //InitDb();
             var auto = new Auto()
             {
                 Hersteller = $"Baudi_{Guid.NewGuid()}",
@@ -49,6 +59,7 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
 
                 loaded.Should().BeEquivalentTo(auto);
             }
+            //CleanDb();
         }
 
         [TestMethod]
