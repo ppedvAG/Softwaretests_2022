@@ -71,7 +71,64 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
                 loaded.Should().BeEquivalentTo(auto, x => x.IgnoringCyclicReferences());
             }
         }
-        
+
+        [TestMethod]
+        public void Delete_Vermietung_should_not_delete_Auto()
+        {
+            var auto = new Auto();
+            var vm = new Vermietung();
+            auto.Vermietungen.Add(vm);
+            using (var con = new EfContext())
+            {
+                con.Add(auto);
+                con.SaveChanges().Should().Be(2);
+            }
+
+            using (var con = new EfContext())
+            {
+                var vmLoaded = con.Find<Vermietung>(vm.Id);
+                con.Remove(vmLoaded);
+                con.SaveChanges().Should().Be(1);
+            }
+
+            using (var con = new EfContext())
+            {
+                var autoLoaded = con.Find<Auto>(auto.Id);
+                autoLoaded.Should().NotBeNull();
+                var vmLoaded = con.Find<Vermietung>(vm.Id);
+                vmLoaded.Should().BeNull();
+                
+            }
+        }
+
+        [TestMethod]
+        public void Delete_Auto_should_delete_all_Vermietungen()
+        {
+            var auto = new Auto();
+            var vm1 = new Vermietung();
+            var vm2 = new Vermietung();
+            auto.Vermietungen.Add(vm1);
+            auto.Vermietungen.Add(vm2);
+            using (var con = new EfContext())
+            {
+                con.Add(auto);
+                con.SaveChanges().Should().Be(3);
+            }
+
+            using (var con = new EfContext())
+            {
+                var autoLoaded = con.Find<Auto>(auto.Id);
+                con.Remove(autoLoaded);
+                con.SaveChanges().Should().Be(1);
+            }
+
+            using (var con = new EfContext())
+            {
+                con.Find<Auto>(auto.Id).Should().BeNull();
+                con.Find<Vermietung>(vm1.Id).Should().BeNull();
+                con.Find<Vermietung>(vm2.Id).Should().BeNull();
+            }
+        }
 
     }
 }

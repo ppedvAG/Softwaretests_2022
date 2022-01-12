@@ -13,5 +13,13 @@ namespace ppedv.Autovermietung.Data.EFCore
             var conString = "Server=(localdb)\\mssqllocaldb;Database=Autovermietung_dev;Trusted_Connection=true";
             optionsBuilder.UseLazyLoadingProxies().UseSqlServer(conString);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Auto>()
+                        .HasMany(x => x.Vermietungen)
+                        .WithOne(x => x.Auto)
+                        .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }
