@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Autovermietung.UI.Dev
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Autovermietung.Logic.Tests", "ppedv.Autovermietung.Logic.Tests\ppedv.Autovermietung.Logic.Tests.csproj", "{20B0C3F9-5FBD-4B3D-86BF-BA73C5AB886D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Autovermietung.UI.WPF", "ppedv.Autovermietung.UI.WPF\ppedv.Autovermietung.UI.WPF.csproj", "{70E4BB48-9CE7-410A-B333-12EDE60ED2FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{20B0C3F9-5FBD-4B3D-86BF-BA73C5AB886D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20B0C3F9-5FBD-4B3D-86BF-BA73C5AB886D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20B0C3F9-5FBD-4B3D-86BF-BA73C5AB886D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E4BB48-9CE7-410A-B333-12EDE60ED2FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E4BB48-9CE7-410A-B333-12EDE60ED2FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E4BB48-9CE7-410A-B333-12EDE60ED2FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E4BB48-9CE7-410A-B333-12EDE60ED2FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
