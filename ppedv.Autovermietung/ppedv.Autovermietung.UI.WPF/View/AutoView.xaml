@@ -3,16 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ppedv.Autovermietung.UI.WPF.View"
+             xmlns:local="clr-namespace:ppedv.Autovermietung.UI.WPF.View" xmlns:viewmodel="clr-namespace:ppedv.Autovermietung.UI.WPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewmodel:AutoViewModel/>
+    </UserControl.DataContext>
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
             <Button>Laden</Button>
             <Button>Speichern</Button>
             <Button>Neu</Button>
         </WrapPanel>
-        <DataGrid DockPanel.Dock="Left" Width="200"/>
+        <DataGrid ItemsSource="{Binding AutosList}"
+                  SelectedItem="{Binding SelectedAuto}"
+                  DockPanel.Dock="Left" Width="400"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -26,15 +31,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label>Hersteller</Label>
-            <TextBox Grid.Column="1"/>
+            <TextBox Grid.Column="1" Text="{Binding SelectedAuto.Hersteller}"/>
             <Label Grid.Row="1">Modell</Label>
-            <TextBox Grid.Row="1" Grid.Column="1"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedAuto.Modell}"/>
             <Label Grid.Row="2">Baujahr</Label>
-            <DatePicker Grid.Row="2" Grid.Column="1"/>
+            <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding SelectedAuto.Baujahr}"/>
             <Label Grid.Row="3">PS</Label>
-            <Slider Grid.Row="3" Grid.Column="1" Maximum="1000"/>
+            <Slider Grid.Row="3" Grid.Column="1" Maximum="1000" Value="{Binding SelectedAuto.PS}"/>
             <GroupBox Header="Vermietungen" Grid.Row="4" Grid.ColumnSpan="2">
-                <ListBox/>
+                <DataGrid ItemsSource="{Binding SelectedAuto.Vermietungen}"/>
             </GroupBox>
         </Grid>
     </DockPanel>

@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModel\" />
+    <ProjectReference Include="..\ppedv.Autovermietung.Data.EFCore\ppedv.Autovermietung.Data.EFCore.csproj" />
+    <ProjectReference Include="..\ppedv.Autovermietung.Logic\ppedv.Autovermietung.Logic.csproj" />
+    <ProjectReference Include="..\ppedv.Autovermietung.Model\ppedv.Autovermietung.Model.csproj" />
   </ItemGroup>
 
 </Project>
