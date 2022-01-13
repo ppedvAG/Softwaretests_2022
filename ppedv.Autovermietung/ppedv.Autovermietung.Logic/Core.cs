@@ -14,7 +14,10 @@ namespace ppedv.Autovermietung.Logic
 
         public Auto GetFastedCar(DateTime date)
         {
-            return Repository.GetAll<Auto>().OrderBy(x => x.PS).FirstOrDefault();
+            return Repository.GetAll<Auto>()
+                             .OrderByDescending(x => x.PS)
+                             .ThenByDescending(x => x.Modell)
+                             .FirstOrDefault();
         }
 
         public void AddVermietung(Auto auto, DateTime start, DateTime end)
