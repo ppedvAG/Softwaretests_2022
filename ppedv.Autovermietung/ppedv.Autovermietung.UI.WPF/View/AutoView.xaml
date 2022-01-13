@@ -11,9 +11,9 @@
     </UserControl.DataContext>
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
-            <Button>Laden</Button>
+            <Button IsEnabled="False">Laden</Button>
             <Button Command="{Binding SaveCommand}">Speichern</Button>
-            <Button>Neu</Button>
+            <Button IsEnabled="False">Neu</Button>
         </WrapPanel>
         <DataGrid ItemsSource="{Binding AutosList}"
                   SelectedItem="{Binding SelectedAuto}"

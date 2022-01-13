@@ -14,9 +14,16 @@ namespace ppedv.Autovermietung.UI.WPF.ViewModel
 
         private Core _core;
 
-        public AutoViewModel()
+        public AutoViewModel() : this(null)
+        { }
+
+        public AutoViewModel(Core core)
         {
-            _core = new Core(new Data.EFCore.EfRepository());
+            if (core == null)
+                _core = new Core(new Data.EFCore.EfRepository());
+            else
+                _core = core;
+
             AutosList = new ObservableCollection<Auto>(_core.Repository.GetAll<Auto>());
 
             SaveCommand = new RelayCommand(x => _core.Repository.SaveChanges());
