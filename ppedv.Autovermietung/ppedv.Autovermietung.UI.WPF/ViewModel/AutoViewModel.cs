@@ -1,6 +1,7 @@
 ﻿using ppedv.Autovermietung.Logic;
 using ppedv.Autovermietung.Model;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace ppedv.Autovermietung.UI.WPF.ViewModel
@@ -25,6 +26,7 @@ namespace ppedv.Autovermietung.UI.WPF.ViewModel
                 _core = core;
 
             AutosList = new ObservableCollection<Auto>(_core.Repository.GetAll<Auto>());
+            SelectedAuto = AutosList.FirstOrDefault();
 
             SaveCommand = new RelayCommand(x => _core.Repository.SaveChanges());
         }

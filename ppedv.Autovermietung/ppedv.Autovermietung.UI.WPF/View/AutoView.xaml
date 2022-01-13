@@ -31,7 +31,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label>Hersteller</Label>
-            <TextBox Grid.Column="1" Text="{Binding SelectedAuto.Hersteller}"/>
+            <TextBox AutomationProperties.AutomationId="herstellerTb" Grid.Column="1" Text="{Binding SelectedAuto.Hersteller}"/>
             <Label Grid.Row="1">Modell</Label>
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedAuto.Modell}"/>
             <Label Grid.Row="2">Baujahr</Label>
