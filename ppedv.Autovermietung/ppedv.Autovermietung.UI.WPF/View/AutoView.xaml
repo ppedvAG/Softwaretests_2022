@@ -12,7 +12,7 @@
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
             <Button>Laden</Button>
-            <Button>Speichern</Button>
+            <Button Command="{Binding SaveCommand}">Speichern</Button>
             <Button>Neu</Button>
         </WrapPanel>
         <DataGrid ItemsSource="{Binding AutosList}"
