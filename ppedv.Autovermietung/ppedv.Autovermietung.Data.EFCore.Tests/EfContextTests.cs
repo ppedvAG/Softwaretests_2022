@@ -9,15 +9,7 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
     [TestClass]
     public partial class EfContextTests
     {
-        [ClassInitialize]
-        static void Init(TestContext tc)
-        {
-          //con string holen
-        }
-
-
-
-
+  
         [TestMethod]
         public void Can_create_database()
         {
@@ -98,7 +90,7 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
             using (var con = new EfContext())
             {
                 var vmLoaded = con.Find<Vermietung>(vm.Id);
-                con.Remove(vmLoaded);
+                con.Remove<Vermietung>(vmLoaded);
                 con.SaveChanges().Should().Be(1);
             }
 
@@ -108,7 +100,7 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
                 autoLoaded.Should().NotBeNull();
                 var vmLoaded = con.Find<Vermietung>(vm.Id);
                 vmLoaded.Should().BeNull();
-                
+
             }
         }
 
@@ -129,7 +121,7 @@ namespace ppedv.Autovermietung.Data.EFCore.Tests
             using (var con = new EfContext())
             {
                 var autoLoaded = con.Find<Auto>(auto.Id);
-                con.Remove(autoLoaded);
+                con.Remove<Auto>(autoLoaded);
                 con.SaveChanges().Should().Be(1);
             }
 
